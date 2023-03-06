@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Branding</h1>
+      <div class="horizontal-separator"></div>
+      <form onsubmit="() =>submitHandler()">
+        <div class="logo-container container">
+          <h2 class="container-heading">Logo</h2>
+          <div class="fileUploaders">
+            <div class="file logo-file-upload">
+              <h4 class="subHeading">Login Logo (Max - W: 385px X H: 75px)</h4>
+              <label id="logo-label" for="logoInput">
+                <p id="logoLabelText">Upload Logo</p>
+                <i id="logoLabelIcon" class="fa-solid fa-cloud-arrow-up"></i>
+              </label>
+              <input
+                id="logoInput"
+                type="file"
+                accept="image/jpg image/jpeg image/png"
+              />
+              <div class="preview">
+                <img id="logo" class="none" alt="" />
+                <i
+                  id="logoCloseIcon"
+                  class="fa-sharp fa-solid fa-circle-xmark"
+                  onclick="removeLogo()"
+                ></i>
+              </div>
+              <p id="logoError" class="error none">
+                Max width and height should be 385px and 75px respectively
+              </p>
+            </div>
+            <div class="file favicon-file-upload">
+              <h4 class="subHeading">Favicon Logo (Max - W: 16px X H: 16px)</h4>
+              <label id="favicon-label" for="faviconInput">
+                <p id="faviconLabelText">Upload Logo</p>
+                <i id="faviconLabelIcon" class="fa-solid fa-cloud-arrow-up"></i>
+              </label>
+              <input
+                id="faviconInput"
+                type="file"
+                accept="image/jpg image/jpeg image/png"
+              />
+              <div class="preview">
+                <img id="favicon" class="none" alt="" />
+                <i
+                  id="faviconCloseIcon"
+                  class="fa-sharp fa-solid fa-circle-xmark"
+                  onclick="removeFavicon()"
+                ></i>
+              </div>
+              <p id="faviconError" class="error none">
+                Max width and height should be 385px and 75px respectively
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="background-container container">
+          <h2 class="container-heading">Background Color</h2>
+          <div class="colorSelectorContainer">
+            <div class="color-selector leftColorSelector">
+              <h4 class="colorSubHeading subHeading">Left Panel View</h4>
+              <input
+                id="left_color_code"
+                class="color_code"
+                type="text"
+                name="colorCode"
+                oninput="leftColorPreview()"
+              />
+              <div id="left_color_wrapper" class="color_wrapper">
+                <input
+                  id="left_color_picker"
+                  class="color_picker"
+                  oninput="set_colorLeft(this)"
+                  type="color"
+                />
+              </div>
+              <div class="transparencyContainer">
+                <p class="transparencyHeading">Transparency:</p>
+                <div class="transparencyInputContainer">
+                  <input
+                    id="left_color_picker_alpha"
+                    class="color_picker_alpha"
+                    oninput="set_colorLeft(this)"
+                    type="range"
+                    min="0"
+                    max="255"
+                    step="1"
+                    value="255"
+                  />
+                  <input
+                    type="text"
+                    name="percentage"
+                    oninput="changeLeftSliderValue()"
+                    id="leftTransparencyInput"
+                    class="transparencyInput"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="color-selector rightColorSelector">
+              <h4 class="colorSubHeading subHeading">Right Panel View</h4>
+
+              <input
+                id="right_color_code"
+                class="color_code"
+                type="text"
+                name="colorCode"
+                oninput="rightColorPreview()"
+              />
+              <div id="right_color_wrapper" class="color_wrapper">
+                <input
+                  id="right_color_picker"
+                  class="color_picker"
+                  oninput="set_colorRight(this)"
+                  type="color"
+                />
+              </div>
+              <div class="transparencyContainer">
+                <p class="transparencyHeading">Transparency:</p>
+                <div class="transparencyInputContainer">
+                  <input
+                    id="right_color_picker_alpha"
+                    class="color_picker_alpha"
+                    oninput="set_colorRight(this)"
+                    type="range"
+                    min="0"
+                    max="255"
+                    step="1"
+                    value="0"
+                  />
+                  <input
+                    type="text"
+                    name="percentage"
+                    oninput="changeRightSliderValue()"
+                    id="rightTransparencyInput"
+                    class="transparencyInput"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="background-image-container container">
+          <h2 class="container-heading">Background Image</h2>
+          <div class="fileUploaders">
+            <div class="file image1-file-upload">
+              <h4 class="subHeading">Image 1 : (W:730px x H:1024px)</h4>
+              <label id="image1-label" for="image1Input">
+                <p id="image1LabelText">Upload Image</p>
+                <i id="image1LabelIcon" class="fa-solid fa-cloud-arrow-up"></i>
+              </label>
+              <input
+                id="image1Input"
+                type="file"
+                accept="image/jpg image/jpeg image/png"
+              />
+              <div class="preview">
+                <img id="image1" class="none" alt="" />
+                <i
+                  id="image1CloseIcon"
+                  class="fa-sharp fa-solid fa-circle-xmark"
+                ></i>
+              </div>
+              <p id="image1Error" class="error none">
+                Max width and height should be 385px and 75px respectively
+              </p>
+            </div>
+            <div class="file image2-file-upload">
+              <h4 class="subHeading">Image 2 : (W:730px x H:1024px)</h4>
+              <label id="image2-label" for="image2Input">
+                <p id="image2LabelText">Upload Image</p>
+                <i id="image2LabelIcon" class="fa-solid fa-cloud-arrow-up"></i>
+              </label>
+              <input
+                id="image2Input"
+                type="file"
+                accept="image/jpg image/jpeg image/png"
+              />
+              <div class="preview">
+                <img id="image2" class="none" alt="" />
+                <i
+                  id="image2CloseIcon"
+                  class="fa-sharp fa-solid fa-circle-xmark"
+                ></i>
+              </div>
+              <p id="image2Error" class="error none">
+                Max width and height should be 385px and 75px respectively
+              </p>
+            </div>
+          </div>
+          <div class="fileUploaders">
+            <div class="file image3-file-upload">
+              <h4 class="subHeading">Image 3 : (W:730px x H:1024px)</h4>
+              <label id="image3-label" for="image3Input">
+                <p id="image3LabelText">Upload Image</p>
+                <i id="image3LabelIcon" class="fa-solid fa-cloud-arrow-up"></i>
+              </label>
+              <input
+                id="image3Input"
+                type="file"
+                accept="image/jpg image/jpeg image/png"
+              />
+              <div class="preview">
+                <img id="image3" class="none" alt="" />
+                <i
+                  id="image3CloseIcon"
+                  class="fa-sharp fa-solid fa-circle-xmark"
+                ></i>
+              </div>
+              <p id="image3Error" class="error none">
+                Max width and height should be 385px and 75px respectively
+              </p>
+            </div>
+            <div class="file image4-file-upload">
+              <h4 class="subHeading">Image 4 : (W:730px x H:1024px)</h4>
+              <label id="image4-label" for="image4Input">
+                <p id="image4LabelText">Upload Image</p>
+                <i id="image4LabelIcon" class="fa-solid fa-cloud-arrow-up"></i>
+              </label>
+              <input
+                id="image4Input"
+                type="file"
+                accept="image/jpg image/jpeg image/png"
+              />
+              <div class="preview">
+                <img id="image4" class="none" alt="" />
+                <i
+                  id="image4CloseIcon"
+                  class="fa-sharp fa-solid fa-circle-xmark"
+                ></i>
+              </div>
+              <p id="image4Error" class="error none">
+                Max width and height should be 385px and 75px respectively
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" onclick="submitHandler()">Save</button>
+      </form>
+    </div>
+    <script src="./logoUploader.js"></script>
+    <script src="./backgroundColor.js"></script>
+    <script src="./submit.js"></script>
+    <script src="./backgroundImageUploader.js"></script>
+  </body>
+</html>
