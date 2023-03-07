@@ -235,7 +235,6 @@
 .color_picker_alpha {
   filter: grayscale(60%);
   visibility: visible;
-
   margin: auto;
   -webkit-appearance: none;
   overflow: hidden;

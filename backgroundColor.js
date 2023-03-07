@@ -25,7 +25,7 @@ function leftColorPreview() {
   left_Transparency_Input.value = `${opacityValue.toFixed(0)}%`;
 }
 
-function set_colorLeft(el) {
+function set_colorLeft() {
   left_color_wrapper.style.backgroundColor =
     left_color_picker.value +
     (left_color_picker_alpha.value == 255
@@ -67,7 +67,7 @@ function rightColorPreview() {
   rightTransparencyInput.value = `${opacityValue.toFixed(0)}%`;
 }
 
-function set_colorRight(el) {
+function set_colorRight() {
   right_color_wrapper.style.backgroundColor =
     right_color_picker.value +
     (right_color_picker_alpha.value == 255
@@ -111,11 +111,12 @@ function changeLeftSliderValue() {
   let inputString = left_Transparency_Input.value.toString();
   let inputPercentage = inputString.substring(0, inputString.length - 1);
   left_color_picker_alpha.value = (inputPercentage / 100) * 255;
+  set_colorLeft();
 }
 
 function changeRightSliderValue() {
   let inputString = rightTransparencyInput.value.toString();
   let inputPercentage = inputString.substring(0, inputString.length - 1);
-  log;
   right_color_picker_alpha.value = (inputPercentage / 100) * 255;
+  set_colorRight();
 }
