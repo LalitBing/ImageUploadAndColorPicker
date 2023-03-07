@@ -277,3 +277,30 @@
   height: 40px;
   border: none;
 }
+
+.btnContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 5px 10px;
+  font-weight: 600;
+}
+
+.btn > i {
+  margin-top: 3px;
+  font-weight: 900;
+  margin-right: 3px;
+}
+
+.submitBtn {
+  background-color: #005daa;
+  color: white;
+}
+
+.clearBtn {
+  background: transparent;
+  color: #696969;
+  border: 1px solid #696969;
+}

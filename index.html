@@ -251,7 +251,16 @@
           </div>
         </div>
 
-        <button type="submit" onclick="submitHandler()">Save</button>
+        <div class="btnContainer">
+          <button class="submitBtn btn" type="submit" onclick="submitHandler()">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Save
+          </button>
+          <button class="clearBtn btn" onclick="clearHandler()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            Clear
+          </button>
+        </div>
       </form>
     </div>
     <script src="./logoUploader.js"></script>
